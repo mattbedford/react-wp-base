@@ -1,5 +1,5 @@
 import App from './App';
-
+import './styles.scss';
 
 const {createRoot} = wp.element;
 

@@ -2,6 +2,7 @@
 
 namespace ReactBase\includes;
 
+if (!defined('ABSPATH')) exit;
 
 abstract class Scripts
 {
@@ -14,6 +15,8 @@ abstract class Scripts
             array('wp-element', 'wp-api-fetch', 'react-jsx-runtime'),
             '1.00',
             true);
+        wp_enqueue_style('react-wp-app-style',
+        $plugin_url . '/build/index.css');
     }
 
 }

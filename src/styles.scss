@@ -1,0 +1,31 @@
+
+$color-primary: #d7c49eff;
+$color-secondary: #343148ff;
+$padding-large: 2rem;
+$padding-small: 1rem;
+$page-width: 900px;
+$m-auto: 0 auto;
+
+
+.parent {
+  padding: $padding-large;
+  background-color: $color-primary;
+
+  .child {
+    background-color: $color-secondary;
+    padding: $padding-small;
+  }
+}
+body {
+  background: $color-primary;
+}
+button,
+#react-app button {
+  background: $color-secondary;
+  color: white;
+}
+#react-app {
+    width: $page-width;
+    margin: $m-auto;
+    padding: $padding-large;
+}

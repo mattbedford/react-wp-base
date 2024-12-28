@@ -2,7 +2,8 @@
 
 namespace ReactBase\includes;
 
-if(!defined(ABSPATH)) exit;
+if (!defined('ABSPATH')) exit;
+
 
 abstract class Html
 {
