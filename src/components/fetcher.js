@@ -6,22 +6,22 @@
 
 //const useState = wp.element.useState;
 
-function Counter() {
+function Fetcher() {
 
-  const useState = wp.element.useState;
+    const useState = wp.element.useState;
 
-  // Note how we pass in "0", which gives our initial state.
-  const [count, setCount] = useState(0);
+    // Note how we pass in "0", which gives our initial state.
+    const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+    function handleClick() {
+        setCount(count + 1);
+    }
 
-  return (
-    <button onClick={handleClick}>
-      Clicked {count} times
-    </button>
-  );
+    return (
+        <div>
+            Clicked {count} times
+        </div>
+    );
 }
 
-export default Counter;
+export default Fetcher;
