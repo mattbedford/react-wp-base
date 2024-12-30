@@ -4,9 +4,12 @@
 // - An undefined VALUE - the value of our "state" when we first run the component
 // - An undefined FUNCTION - this is what we use to update the state
 
-const useState = wp.element.useState;
+//const useState = wp.element.useState;
 
 function Counter() {
+
+  const useState = wp.element.useState;
+
   // Note how we pass in "0", which gives our initial state.
   const [count, setCount] = useState(0);
 

@@ -1,6 +1,6 @@
 import Counter from './components/counter.js';
-
-//const useEffect = wp.element.useState;
+import Fetcher from './components/fetcher.js';
+import Tester from './components/tester.js';
 
 const App = () => {
 
@@ -10,6 +10,8 @@ const App = () => {
             <h1>React Settings Page</h1>
             <p>Our react settings page is now ready.</p>
             <Counter></Counter>
+            <Fetcher></Fetcher>
+            <Tester></Tester>
         </div>
 
     );
