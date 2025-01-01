@@ -1,20 +1,32 @@
-import Counter from './components/counter.js';
-import Fetcher from './components/fetcher.js';
-import Tester from './components/tester.js';
+
+import Feed from './pages/feed.js';
 
 const App = () => {
 
     return (
-        <div>
-
-            <h1>React Settings Page</h1>
-            <p>Our react settings page is now ready.</p>
-            <Counter></Counter>
-            <Fetcher></Fetcher>
-            <Tester></Tester>
-        </div>
+        <>
+          <Feed></Feed>
+        </>
 
     );
 
 };
 export default App;
+
+
+/*
+import Posts from './components/posts.js';
+import Sidebar from './components/sidebar.js';
+
+const App = () => {
+
+    return (
+        <div id="react-base">
+            <Sidebar></Sidebar>
+            <Posts></Posts>
+        </div>
+
+    );
+
+};
+export default App;*/
