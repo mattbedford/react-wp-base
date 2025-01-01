@@ -1,21 +1,11 @@
 
-$color-primary: #d7c49eff;
+$color-primary: #fff9eb;
 $color-secondary: #343148ff;
 $padding-large: 2rem;
 $padding-small: 1rem;
 $page-width: 900px;
 $m-auto: 0 auto;
 
-
-.parent {
-  padding: $padding-large;
-  background-color: $color-primary;
-
-  .child {
-    background-color: $color-secondary;
-    padding: $padding-small;
-  }
-}
 body {
   background: $color-primary;
 }
@@ -24,8 +14,21 @@ button,
   background: $color-secondary;
   color: white;
 }
+// Top level wrapper
 #react-app {
-    width: $page-width;
-    margin: $m-auto;
-    padding: $padding-large;
+  width:100%;
+  height:100dvh;
+}
+
+// Inner wrapper
+#react-base {
+    display:flex;
+    flex-direction:row;
+    gap: 5em;
+}
+.sidebar {
+  flex:0 1 25%;
+}
+.posts-feed {
+  flex:0 1 75%;
 }
