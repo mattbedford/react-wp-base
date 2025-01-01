@@ -9,6 +9,9 @@ $m-auto: 0 auto;
 body {
   background: $color-primary;
 }
+html {
+  margin:0 !important;
+}
 button,
 #react-app button {
   background: $color-secondary;
@@ -26,9 +29,22 @@ button,
     flex-direction:row;
     gap: 5em;
 }
+
+// Sidebar
 .sidebar {
   flex:0 1 25%;
+  background:#fff;
 }
+.sidebar-inner {
+  position:fixed;
+  width:100%;
+  max-width:25dvw;
+  top:0;
+  left:0;
+  height:100%;
+  background:pink;
+}
+
 .posts-feed {
   flex:0 1 75%;
 }

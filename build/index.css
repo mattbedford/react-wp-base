@@ -36,7 +36,7 @@ button,
   width: 100%;
   max-width: 25dvw;
   top: 0;
-  right: 0;
+  left: 0;
   height: 100%;
   background: pink;
 }
@@ -44,3 +44,5 @@ button,
 .posts-feed {
   flex: 0 1 75%;
 }
+
+/*# sourceMappingURL=index.css.map*/
