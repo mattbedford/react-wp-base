@@ -1,3 +1,20 @@
+
+import Feed from './pages/feed.js';
+
+const App = () => {
+
+    return (
+        <>
+          <Feed></Feed>
+        </>
+
+    );
+
+};
+export default App;
+
+
+/*
 import Posts from './components/posts.js';
 import Sidebar from './components/sidebar.js';
 
@@ -12,4 +29,4 @@ const App = () => {
     );
 
 };
-export default App;
+export default App;*/

@@ -1,3 +1,5 @@
+import PostSingle from './post-single.js';
+
 function Posts(){
 
     const useState = wp.element.useState;
@@ -25,11 +27,9 @@ function Posts(){
     return (
         <div className="posts-feed">
 
-            <ul>
                 {posts && posts.map((post) => (
-                    <li key={post.ID}>{post.ID}</li>
+                    <PostSingle post={post} type={post.type}></PostSingle>
                 ))}
-            </ul>
 
             <p>You have hit the API {apiHits} times!</p>
             <button onClick={fetchLatestPosts}>click me to update post list</button>
