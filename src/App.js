@@ -1,11 +1,19 @@
 
-import Feed from './pages/feed.js';
+import Feed from "./pages/feed";
+import Counter from "./components/counter";
+import Route from "./routing/route";
+import Header from "./components/header";
 
 const App = () => {
 
     return (
         <>
-          <Feed></Feed>
+            <Header></Header>
+
+            <h1>The App component</h1>
+            <Route path="Counter" >
+                <Counter></Counter>
+            </Route>
         </>
 
     );
