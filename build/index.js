@@ -351,7 +351,6 @@ const Route = ({
       // update path state to current window URL
       setCurrentPath(window.location.pathname);
     };
-    console.log("Route effect with path:" + path + " and currentPath: " + currentPath + " and children: " + children);
 
     // listen for popstate event
     window.addEventListener('popstate', onLocationChange);
@@ -361,11 +360,6 @@ const Route = ({
       window.removeEventListener('popstate', onLocationChange);
     };
   }, []);
-  if (children) {
-    console.log("Route has children: " + children);
-  } else {
-    console.log("Route has no children");
-  }
   return currentPath === path ? children : null;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Route);

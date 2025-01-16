@@ -39,14 +39,16 @@ abstract class Routing
 //    }
 //
 //    // NEEDS ADAPTING TO HANDLE SPECIFIC ROUTES/CHILDREN
-//    public static function NoFourOhFour($header, $code, $description, $protocol) {
-//        if (intval($code) === 404) { //Is this a 404 header?
-//            $description = get_status_header_desc(200); //Get the default 200 description
-//            return "{$protocol} 200 {$description}"; //Return a 200 status header
-//        } else { //This isn't a 404 status
-//            return $header; //Don't change the header
-//        }
-//    }
+    public static function NotFourOhFour($header, $code, $description, $protocol) {
+        \ulogger::console("the header is: " . $header);
+
+        if (intval($code) === 404 && self::is_tree()) {
+            $description = get_status_header_desc(200); //Get the default 200 description
+            return "{$protocol} 200 {$description}"; //Return a 200 status header
+        } else {
+            return $header;
+        }
+    }
 
 
     public static function MakeRoute($template)

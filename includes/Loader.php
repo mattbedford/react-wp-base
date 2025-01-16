@@ -29,7 +29,7 @@ class Loader
         //add_filter('redirect_canonical', [Routes::class, 'UnknownRequest']);
         //add_action('plugins_loaded', [\Routing::class, 'Rewrite']);
         //add_filter('template_include', [\Routing::class, 'Template']);
-        //add_filter('status_header', [\Routing::class, 'NoFourOhFour'], 10, 4);
+        add_filter('status_header', [Routing::class, 'NotFourOhFour'], 100, 4);
 
     }
 
