@@ -525,8 +525,10 @@ const {
   createRoot
 } = wp.element;
 const container = document.getElementById('react-app');
-const root = createRoot(container);
-root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_App__WEBPACK_IMPORTED_MODULE_0__["default"], {}));
+if (container) {
+  const root = createRoot(container);
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_App__WEBPACK_IMPORTED_MODULE_0__["default"], {}));
+}
 })();
 
 /******/ })()
