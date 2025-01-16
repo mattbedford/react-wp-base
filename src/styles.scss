@@ -48,3 +48,68 @@ button,
 .posts-feed {
   flex:0 1 75%;
 }
+
+
+
+
+
+
+
+#react-app {
+  position:relative;
+  width:100%;
+  top:0;
+  min-height:100dvh;
+  margin-top:100px;
+  margin:0 auto;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 50%, #ffffff 100%);
+  padding:180px 20%;
+}
+
+.ui.menu {
+  position:fixed;
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
+  top:0;
+  left:0;
+  height:100px;
+  width:100%;
+  min-width:100dvw;
+  background:white;
+  padding:40px;
+  max-width:1200px;
+  margin:0 auto 20px auto;
+  font-weight:800;
+  font-size:14px;
+  padding:0 100px;
+  box-shadow: 4px 1px 1px rgba(0,0,0,0.12),
+  2px 2px 2px rgba(0,0,0,0.12),
+  1px 8px 8px rgba(0,0,0,0.12),
+  0 16px 16px rgba(0,0,0,0.12) !important;
+}
+
+.ui.menu .item {
+  text-decoration:none;
+  color:#3a3a3a !important;
+
+
+}
+
+.posts-feed {
+  overflow-y: scroll;
+  max-height:60dvh;
+}
+.feed-post-single {
+  max-width:80%;
+  margin:20px auto;
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12),
+  0 2px 2px rgba(0,0,0,0.12),
+  0 4px 4px rgba(0,0,0,0.12),
+  0 8px 8px rgba(0,0,0,0.12),
+  0 16px 16px rgba(0,0,0,0.12);
+}

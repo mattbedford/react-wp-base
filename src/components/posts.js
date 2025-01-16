@@ -28,7 +28,7 @@ function Posts(){
         <div className="posts-feed">
 
                 {posts && posts.map((post) => (
-                    <PostSingle post={post} type={post.type}></PostSingle>
+                    <PostSingle key={post.id} post={post} type={post.type}></PostSingle>
                 ))}
 
             <p>You have hit the API {apiHits} times!</p>

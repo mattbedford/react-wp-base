@@ -1,22 +1,21 @@
+import Link from "../../src/routing/link";
+
 const Header = () => {
     // https://ncoughlin.com/posts/react-navigation-without-react-router
     return (
         <div className="ui secondary pointing menu">
-            <a href="/" className="item">
-                Accordion
-            </a>
-            <a href="/color-select" className="item">
-                Color Select
-            </a>
-            <a href="/translate" className="item">
-                Translate
-            </a>
-            <a href="/search" className="item">
-                Wiki Search
-            </a>
-            <a href="/all" className="item">
-                All Widgets
-            </a>
+            <Link href="/" className="item">
+                Root
+            </Link>
+            <Link href="/Counter" className="item">
+                Counter
+            </Link>
+            <Link href="/Messages" className="item">
+                Messages
+            </Link>
+            <Link href="/Imager" className="item">
+                Image of the count
+            </Link>
         </div>
     );
 };

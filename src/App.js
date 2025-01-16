@@ -1,8 +1,9 @@
 
-import Feed from "./pages/feed";
+import Posts from "./components/posts";
 import Counter from "./components/counter";
 import Route from "./routing/route";
 import Header from "./components/header";
+import Imager from "./components/imager";
 
 const App = () => {
 
@@ -10,12 +11,27 @@ const App = () => {
         <>
             <Header></Header>
 
-            <h1>The App component</h1>
-            <Route path="Counter" >
+            <Route path="/">
+                <h5>Home</h5>
+            </Route>
+            <Route path="/Counter" >
+                <h5>Counter</h5>
                 <Counter></Counter>
             </Route>
+            <Route path="/Messages">
+                <h5>Feed</h5>
+                <Posts></Posts>
+            </Route>
+            <Route path="/all">
+                <h5>All</h5>
+                <Counter></Counter>
+                <Posts></Posts>
+                <Imager></Imager>
+            </Route>
+            <Route path="/Imager">
+                <Imager></Imager>
+            </Route>
         </>
-
     );
 
 };
