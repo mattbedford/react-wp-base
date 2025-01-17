@@ -11,18 +11,18 @@ const App = () => {
         <>
             <Header></Header>
 
-            <Route path="/">
+            <Route path="/account">
                 <h5>Home</h5>
             </Route>
-            <Route path="/Counter" >
+            <Route path="/account/counter" >
                 <h5>Counter</h5>
                 <Counter></Counter>
             </Route>
-            <Route path="/Messages">
+            <Route path="/account/messages">
                 <h5>Feed</h5>
                 <Posts></Posts>
             </Route>
-            <Route path="/all">
+            <Route path="/account/all">
                 <h5>All</h5>
                 <Counter></Counter>
                 <Posts></Posts>

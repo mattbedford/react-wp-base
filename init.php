@@ -6,7 +6,7 @@
 
 namespace ReactBase;
 
-define( 'REACTIVE_PAGE', 'Account' );
+define( 'REACTIVE_PAGE', 'account' );
 
 include_once dirname( __FILE__ ) . '/includes/Api.php';
 include_once dirname( __FILE__ ) . '/includes/Html.php';

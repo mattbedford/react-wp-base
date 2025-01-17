@@ -7,7 +7,7 @@ const Header = () => {
             <Link href="/" className="item">
                 Root
             </Link>
-            <Link href="/Counter" className="item">
+            <Link href="/account/counter" className="item">
                 Counter
             </Link>
             <Link href="/Messages" className="item">
