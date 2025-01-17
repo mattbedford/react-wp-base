@@ -12,34 +12,156 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _pages_feed_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/feed.js */ "./src/pages/feed.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_posts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/posts */ "./src/components/posts.js");
+/* harmony import */ var _components_counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/counter */ "./src/components/counter.js");
+/* harmony import */ var _routing_route__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routing/route */ "./src/routing/route.js");
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/header */ "./src/components/header.js");
+/* harmony import */ var _components_imager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/imager */ "./src/components/imager.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
 
 
 const App = () => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages_feed_js__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      path: "/account/",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+        children: "Home"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      path: "/account/counter/",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+        children: "Counter"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_counter__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      path: "/account/posts/",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+        children: "Posts"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_posts__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      path: "/account/image/",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_imager__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
-/*
-import Posts from './components/posts.js';
-import Sidebar from './components/sidebar.js';
+/***/ }),
 
-const App = () => {
+/***/ "./src/components/counter.js":
+/*!***********************************!*\
+  !*** ./src/components/counter.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-    return (
-        <div id="react-base">
-            <Sidebar></Sidebar>
-            <Posts></Posts>
-        </div>
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-    );
+// Using "state" in React. (Which is a BIG deal).
+// This is the most modern way to handle "state" inside an App. And handling state is key.
+// You import useState. By default it has 2 parts:
+// - An undefined VALUE - the value of our "state" when we first run the component
+// - An undefined FUNCTION - this is what we use to update the state
 
+//const useState = wp.element.useState;
+
+function Counter() {
+  const useState = wp.element.useState;
+
+  // Note how we pass in "0", which gives our initial state.
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+    onClick: handleClick,
+    children: ["Clicked ", count, " times"]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
+
+/***/ }),
+
+/***/ "./src/components/header.js":
+/*!**********************************!*\
+  !*** ./src/components/header.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _src_routing_link__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/routing/link */ "./src/routing/link.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Header = () => {
+  // https://ncoughlin.com/posts/react-navigation-without-react-router
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "ui secondary pointing menu",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      href: "/account/",
+      className: "item",
+      children: "Root"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      href: "/account/counter/",
+      className: "item",
+      children: "Counter"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      href: "/account/posts/",
+      className: "item",
+      children: "Messages"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      href: "/account/image/",
+      className: "item",
+      children: "Image of the count"
+    })]
+  });
 };
-export default App;*/
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+
+/***/ }),
+
+/***/ "./src/components/imager.js":
+/*!**********************************!*\
+  !*** ./src/components/imager.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_count_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/count.jpg */ "./src/assets/count.jpg");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Imager = () => {
+  const num1 = 10;
+  const num2 = 20;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      src: _assets_count_jpg__WEBPACK_IMPORTED_MODULE_0__,
+      alt: "random image"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+      children: ["Our component returned the value of ", num1 + num2]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+      children: "I am awesome"
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Imager);
 
 /***/ }),
 
@@ -126,7 +248,7 @@ function Posts() {
     children: [posts && posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_post_single_js__WEBPACK_IMPORTED_MODULE_0__["default"], {
       post: post,
       type: post.type
-    })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+    }, post.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       children: ["You have hit the API ", apiHits, " times!"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
       onClick: fetchLatestPosts,
@@ -138,10 +260,10 @@ function Posts() {
 
 /***/ }),
 
-/***/ "./src/components/sidebar.js":
-/*!***********************************!*\
-  !*** ./src/components/sidebar.js ***!
-  \***********************************/
+/***/ "./src/routing/link.js":
+/*!*****************************!*\
+  !*** ./src/routing/link.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -151,47 +273,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-function Sidebar() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "sidebar",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "sidebar-inner",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "sidebar-logo"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-        children: "Sidebar"
-      })]
-    })
+const Link = ({
+  className,
+  href,
+  children
+}) => {
+  const onClick = event => {
+    // if ctrl or meta key are held on click, allow default behavior of opening link in new tab
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
+
+    // prevent full page reload
+    event.preventDefault();
+    // update url
+    window.history.pushState({}, "", href);
+
+    // communicate to Routes that URL has changed
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+    className: className,
+    href: href,
+    onClick: onClick,
+    children: children
   });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sidebar);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Link);
 
 /***/ }),
 
-/***/ "./src/pages/feed.js":
-/*!***************************!*\
-  !*** ./src/pages/feed.js ***!
-  \***************************/
+/***/ "./src/routing/route.js":
+/*!******************************!*\
+  !*** ./src/routing/route.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_posts_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/posts.js */ "./src/components/posts.js");
-/* harmony import */ var _components_sidebar_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/sidebar.js */ "./src/components/sidebar.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+const Route = ({
+  path,
+  children
+}) => {
+  const useState = wp.element.useState;
+  const useEffect = wp.element.useEffect;
 
+  // Utility function to ensure trailing slash
+  const ensureTrailingSlash = pathname => {
+    return pathname.endsWith("/") ? pathname : `${pathname}/`;
+  };
 
-
-const Feed = () => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    id: "react-base",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_sidebar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_posts_js__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+  // State to track URL and force component to re-render on change
+  const [currentPath, setCurrentPath] = useState(() => {
+    // Immediately ensure trailing slash on initial load
+    const pathnameWithSlash = ensureTrailingSlash(window.location.pathname);
+    if (window.location.pathname !== pathnameWithSlash) {
+      window.history.replaceState({}, '', pathnameWithSlash);
+    }
+    return pathnameWithSlash;
   });
+  useEffect(() => {
+    // Define callback as separate function so it can be removed later with cleanup function
+    const onLocationChange = () => {
+      const pathnameWithSlash = ensureTrailingSlash(window.location.pathname);
+      if (window.location.pathname !== pathnameWithSlash) {
+        // Update URL in browser without adding a new history entry
+        window.history.replaceState({}, '', pathnameWithSlash);
+      }
+      // Update path state to current window URL
+      setCurrentPath(pathnameWithSlash);
+    };
+
+    // Listen for popstate event (triggered on back/forward navigation)
+    window.addEventListener('popstate', onLocationChange);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('popstate', onLocationChange);
+    };
+  }, []);
+  return currentPath === path ? children : null;
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Feed);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Route);
 
 /***/ }),
 
@@ -204,6 +370,16 @@ const Feed = () => {
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/assets/count.jpg":
+/*!******************************!*\
+  !*** ./src/assets/count.jpg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "images/count.2a2179f3.jpg";
 
 /***/ }),
 
@@ -268,6 +444,18 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -282,6 +470,29 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -303,8 +514,10 @@ const {
   createRoot
 } = wp.element;
 const container = document.getElementById('react-app');
-const root = createRoot(container);
-root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_App__WEBPACK_IMPORTED_MODULE_0__["default"], {}));
+if (container) {
+  const root = createRoot(container);
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_App__WEBPACK_IMPORTED_MODULE_0__["default"], {}));
+}
 })();
 
 /******/ })()
