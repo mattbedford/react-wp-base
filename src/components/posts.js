@@ -9,7 +9,11 @@ function Posts(){
     const [posts, setPosts] = useState([]);
 
     function fetchLatestPosts() {
-        wp.apiFetch({ path: '/react-base/v1/get-posts' })
+        wp.apiFetch({
+            path: '/react-base/v1/get-posts',
+            method: 'POST',
+            data: { offset: apiHits}
+        })
             .then((data) => {
                 setPosts(data); // Store data in state
             })
