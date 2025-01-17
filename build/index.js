@@ -28,49 +28,27 @@ __webpack_require__.r(__webpack_exports__);
 const App = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      path: "/account",
+      path: "/account/",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
         children: "Home"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      path: "/account/counter",
+      path: "/account/counter/",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
         children: "Counter"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_counter__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      path: "/account/messages",
+      path: "/account/posts/",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
-        children: "Feed"
+        children: "Posts"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_posts__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      path: "/account/all",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
-        children: "All"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_counter__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_posts__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_imager__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      path: "/Imager",
+      path: "/account/image/",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_imager__WEBPACK_IMPORTED_MODULE_4__["default"], {})
     })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-/*
-import Posts from './components/posts.js';
-import Sidebar from './components/sidebar.js';
-
-const App = () => {
-
-    return (
-        <div id="react-base">
-            <Sidebar></Sidebar>
-            <Posts></Posts>
-        </div>
-
-    );
-
-};
-export default App;*/
 
 /***/ }),
 
@@ -132,19 +110,19 @@ const Header = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "ui secondary pointing menu",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      href: "/",
+      href: "/account/",
       className: "item",
       children: "Root"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      href: "/account/counter",
+      href: "/account/counter/",
       className: "item",
       children: "Counter"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      href: "/Messages",
+      href: "/account/posts/",
       className: "item",
       children: "Messages"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      href: "/Imager",
+      href: "/account/image/",
       className: "item",
       children: "Image of the count"
     })]
@@ -343,19 +321,36 @@ const Route = ({
   const useState = wp.element.useState;
   const useEffect = wp.element.useEffect;
 
-  // state to track URL and force component to re-render on change
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  // Utility function to ensure trailing slash
+  const ensureTrailingSlash = pathname => {
+    return pathname.endsWith("/") ? pathname : `${pathname}/`;
+  };
+
+  // State to track URL and force component to re-render on change
+  const [currentPath, setCurrentPath] = useState(() => {
+    // Immediately ensure trailing slash on initial load
+    const pathnameWithSlash = ensureTrailingSlash(window.location.pathname);
+    if (window.location.pathname !== pathnameWithSlash) {
+      window.history.replaceState({}, '', pathnameWithSlash);
+    }
+    return pathnameWithSlash;
+  });
   useEffect(() => {
-    // define callback as separate function so it can be removed later with cleanup function
+    // Define callback as separate function so it can be removed later with cleanup function
     const onLocationChange = () => {
-      // update path state to current window URL
-      setCurrentPath(window.location.pathname);
+      const pathnameWithSlash = ensureTrailingSlash(window.location.pathname);
+      if (window.location.pathname !== pathnameWithSlash) {
+        // Update URL in browser without adding a new history entry
+        window.history.replaceState({}, '', pathnameWithSlash);
+      }
+      // Update path state to current window URL
+      setCurrentPath(pathnameWithSlash);
     };
 
-    // listen for popstate event
+    // Listen for popstate event (triggered on back/forward navigation)
     window.addEventListener('popstate', onLocationChange);
 
-    // clean up event listener
+    // Clean up event listener
     return () => {
       window.removeEventListener('popstate', onLocationChange);
     };

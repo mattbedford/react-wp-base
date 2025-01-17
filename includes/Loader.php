@@ -12,9 +12,6 @@ class Loader
     {
 
         add_action('plugins_loaded', [$this, 'DoRouting']);
-        add_action('init', function() {
-            add_filter('redirect_canonical', [Routes::class, 'UnknownRequest']);
-        });
 
         add_action('wp_enqueue_scripts', [ \ReactBase\includes\Scripts::class, 'React' ] );
         add_action('rest_api_init', [ \ReactBase\includes\Api::class, 'LoadApiRoutes' ] );

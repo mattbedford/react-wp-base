@@ -4,16 +4,16 @@ const Header = () => {
     // https://ncoughlin.com/posts/react-navigation-without-react-router
     return (
         <div className="ui secondary pointing menu">
-            <Link href="/" className="item">
+            <Link href="/account/" className="item">
                 Root
             </Link>
-            <Link href="/account/counter" className="item">
+            <Link href="/account/counter/" className="item">
                 Counter
             </Link>
-            <Link href="/Messages" className="item">
+            <Link href="/account/posts/" className="item">
                 Messages
             </Link>
-            <Link href="/Imager" className="item">
+            <Link href="/account/image/" className="item">
                 Image of the count
             </Link>
         </div>
