@@ -7,7 +7,7 @@ abstract class Api {
 
     public static function LoadApiRoutes()
     {
-        register_rest_route(
+        \register_rest_route(
             'react-base/v1', '/get-posts', array(
                 'methods'  => 'POST',
                 'callback' => [self::class, 'PostsRoute'],
@@ -15,7 +15,7 @@ abstract class Api {
             )
         );
 
-        register_rest_route(
+        \register_rest_route(
             'react-base/v1', '/get-images', array(
                 'methods'  => 'POST',
                 'callback' => [self::class, 'ImagesRoute'],
@@ -24,13 +24,13 @@ abstract class Api {
         );
     }
 
-    public static function PostsRoute(WP_REST_Request $request): ?array
+    public static function PostsRoute($request): ?array
     {
 
         $data = $request->get_params();
-        $offset = intval(strip_tags($data['offset'])) ?? 0;
+        $offset = intval(($data['offset'])) ?? 0;
 
-        $p = get_posts(['post_type' => 'post', 'posts_per_page' => 1, 'offset' => $offset]);
+        $p = \get_posts(['post_type' => 'post', 'posts_per_page' => 1, 'offset' => $offset]);
         if(!$p) return null;
 
 

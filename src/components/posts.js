@@ -8,11 +8,14 @@ function Posts(){
     const [apiHits, setApiHits] = useState(0);
     const [posts, setPosts] = useState([]);
 
-    function fetchLatestPosts() {
+    function fetchLatestPosts(offset = 0) {
         wp.apiFetch({
             path: '/react-base/v1/get-posts',
             method: 'POST',
-            data: { offset: apiHits}
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: { offset: offset}
         })
             .then((data) => {
                 setPosts(data); // Store data in state
@@ -36,7 +39,7 @@ function Posts(){
                 ))}
 
             <p>You have hit the API {apiHits} times!</p>
-            <button onClick={fetchLatestPosts}>click me to update post list</button>
+            <button onClick={() => fetchLatestPosts(apiHits)}>click me to update post list</button>
 
         </div>
     );

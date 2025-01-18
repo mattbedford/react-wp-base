@@ -230,12 +230,15 @@ function Posts() {
   const useEffect = wp.element.useEffect;
   const [apiHits, setApiHits] = useState(0);
   const [posts, setPosts] = useState([]);
-  function fetchLatestPosts() {
+  function fetchLatestPosts(offset = 0) {
     wp.apiFetch({
       path: '/react-base/v1/get-posts',
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       data: {
-        offset: apiHits
+        offset: offset
       }
     }).then(data => {
       setPosts(data); // Store data in state
@@ -255,7 +258,7 @@ function Posts() {
     }, post.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       children: ["You have hit the API ", apiHits, " times!"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-      onClick: fetchLatestPosts,
+      onClick: () => fetchLatestPosts(apiHits),
       children: "click me to update post list"
     })]
   });
