@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963419e4-a4e8-4ed6-8c72-2d9cff310cd5" name="Changes" comment="" />
+    <list default="true" id="87534307-d00c-4215-82d5-4c2c77c50aca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/index-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,24 +25,66 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="62662" />
+    <xdebug_debug_ports port="62753" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2rlsUmqOnsdU4fVO2Bm0pLMEU0H" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "/home/matt/Dev/react-base/src/assets",
+    "Node.js.posts.js.executor": "Debug",
+    "PHP Script.Api.php.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "prototype",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "//wsl.localhost/Debian/home/matt-bedford/react-wp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propDebugger",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets" />
-    </key>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+      </set>
+    </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87534307-d00c-4215-82d5-4c2c77c50aca" name="Changes" comment="" />
+      <created>1737145013578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737145013578</updated>
+      <workItem from="1737145014584" duration="3951000" />
+      <workItem from="1737232580046" duration="1002000" />
+      <workItem from="1737233689060" duration="1936000" />
+      <workItem from="1737294146516" duration="7558000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

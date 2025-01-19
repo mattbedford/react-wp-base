@@ -27,11 +27,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
       path: "/account/",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
         children: "Home"
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: "Welcome to my Wordpress React app. Check out the subpages to see what it can do."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: "And please note the URLs! This is custom routing within WP (and without 404 errors!)"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
       path: "/account/counter/",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
@@ -112,7 +116,7 @@ const Header = () => {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/",
       className: "item",
-      children: "Root"
+      children: "Home"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/counter/",
       className: "item",
@@ -120,11 +124,11 @@ const Header = () => {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/posts/",
       className: "item",
-      children: "Messages"
+      children: "Posts"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/image/",
       className: "item",
-      children: "Image of the count"
+      children: "Image generator"
     })]
   });
 };
@@ -142,22 +146,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_count_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/count.jpg */ "./src/assets/count.jpg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
 const Imager = () => {
-  const num1 = 10;
-  const num2 = 20;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      src: _assets_count_jpg__WEBPACK_IMPORTED_MODULE_0__,
+  const useState = wp.element.useState;
+  const [img, setImg] = useState(null);
+  const [theme, setTheme] = useState("");
+  const handleChange = event => {
+    setTheme(event.target.value); // Update the state with the selected value
+  };
+  const getRandomImage = event => {
+    event.preventDefault();
+    wp.apiFetch({
+      path: '/react-base/v1/get-images',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        theme: theme
+      }
+    }).then(response => {
+      const base64Image = response.img;
+      const randomImg = `data:image/png;base64,${base64Image}`;
+      setImg(randomImg);
+    }).catch(error => {
+      console.error('Error fetching image:', error); // Error handling
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+      children: "Generate a random image"
+    }), img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+      src: img,
       alt: "random image"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-      children: ["Our component returned the value of ", num1 + num2]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-      children: "I am awesome"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+      onSubmit: getRandomImage,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("select", {
+        onChange: handleChange,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "",
+          children: "Choose a theme"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "nature",
+          children: "Nature"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "city",
+          children: "City"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "technology",
+          children: "Tech"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "food",
+          children: "Food"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "still_life",
+          children: "Still life"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+          value: "abstract",
+          children: "Abstract"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+        type: "submit",
+        value: "Generate"
+      })]
     })]
   });
 };
@@ -230,11 +283,24 @@ function Posts() {
   const useEffect = wp.element.useEffect;
   const [apiHits, setApiHits] = useState(0);
   const [posts, setPosts] = useState([]);
-  function fetchLatestPosts() {
+  function fetchLatestPosts(offset = 0) {
     wp.apiFetch({
-      path: '/react-base/v1/get-posts'
+      path: '/react-base/v1/get-posts',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        offset: offset
+      }
     }).then(data => {
-      setPosts(data); // Store data in state
+      if (data[0].id) {
+        setPosts(data); // Store data in state
+      } else {
+        console.log('Error fetching data:', data);
+        setApiHits(0);
+        setPosts([]);
+      }
     }).catch(error => {
       console.error('Error fetching data:', error);
     });
@@ -251,7 +317,7 @@ function Posts() {
     }, post.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       children: ["You have hit the API ", apiHits, " times!"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-      onClick: fetchLatestPosts,
+      onClick: () => fetchLatestPosts(apiHits),
       children: "click me to update post list"
     })]
   });
@@ -373,16 +439,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/assets/count.jpg":
-/*!******************************!*\
-  !*** ./src/assets/count.jpg ***!
-  \******************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "images/count.2a2179f3.jpg";
-
-/***/ }),
-
 /***/ "react/jsx-runtime":
 /*!**********************************!*\
   !*** external "ReactJSXRuntime" ***!
@@ -444,18 +500,6 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -470,29 +514,6 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

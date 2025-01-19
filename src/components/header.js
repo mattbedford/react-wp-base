@@ -5,16 +5,16 @@ const Header = () => {
     return (
         <div className="ui secondary pointing menu">
             <Link href="/account/" className="item">
-                Root
+                Home
             </Link>
             <Link href="/account/counter/" className="item">
                 Counter
             </Link>
             <Link href="/account/posts/" className="item">
-                Messages
+                Posts
             </Link>
             <Link href="/account/image/" className="item">
-                Image of the count
+                Image generator
             </Link>
         </div>
     );

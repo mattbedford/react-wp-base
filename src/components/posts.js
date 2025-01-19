@@ -8,10 +8,23 @@ function Posts(){
     const [apiHits, setApiHits] = useState(0);
     const [posts, setPosts] = useState([]);
 
-    function fetchLatestPosts() {
-        wp.apiFetch({ path: '/react-base/v1/get-posts' })
+    function fetchLatestPosts(offset = 0) {
+        wp.apiFetch({
+            path: '/react-base/v1/get-posts',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: { offset: offset}
+        })
             .then((data) => {
-                setPosts(data); // Store data in state
+                if(data[0].id) {
+                    setPosts(data); // Store data in state
+                } else {
+                    console.log('Error fetching data:', data);
+                    setApiHits(0);
+                    setPosts([]);
+                }
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -32,7 +45,7 @@ function Posts(){
                 ))}
 
             <p>You have hit the API {apiHits} times!</p>
-            <button onClick={fetchLatestPosts}>click me to update post list</button>
+            <button onClick={() => fetchLatestPosts(apiHits)}>click me to update post list</button>
 
         </div>
     );

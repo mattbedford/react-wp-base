@@ -3,24 +3,35 @@
 namespace ReactBase\includes;
 
 
-class Api {
+abstract class Api {
 
     public static function LoadApiRoutes()
     {
-        register_rest_route(
+        \register_rest_route(
             'react-base/v1', '/get-posts', array(
-                'methods'  => 'GET',
+                'methods'  => 'POST',
                 'callback' => [self::class, 'PostsRoute'],
+                'permission_callback' => '__return_true'
+            )
+        );
+
+        \register_rest_route(
+            'react-base/v1', '/get-images', array(
+                'methods'  => 'POST',
+                'callback' => [self::class, 'ImagesRoute'],
                 'permission_callback' => '__return_true'
             )
         );
     }
 
-    public static function PostsRoute(): ?array
+    public static function PostsRoute($request): ?array
     {
 
-        $p = get_posts(['post_type' => 'post', 'posts_per_page' => 100]);
-        if(!$p) return null;
+        $data = $request->get_params();
+        $offset = intval(($data['offset'])) ?? 0;
+
+        $p = \get_posts(['post_type' => 'post', 'posts_per_page' => 1, 'offset' => $offset]);
+        if(!$p) return ["Error", "No more posts found!"];
 
 
         $posts = array_map(function ($post) {
@@ -39,6 +50,49 @@ class Api {
         }, $p);
 
         return $posts;
+    }
+
+
+    public static function ImagesRoute($request)
+    {
+        $data = $request->get_params();
+        $theme = sanitize_text_field($data['theme']);
+
+        if (in_array($theme, ['nature', 'city', 'technology', 'food', 'abstract', 'still_life'])) {
+            $theme = $theme ?? 'nature';
+        }
+
+        $response = null;
+        $url = 'https://api.api-ninjas.com/v1/randomimage?category=' . $theme;
+        $key = get_option('external_api_key');
+
+        $response = wp_remote_get($url, array(
+            'headers' => array(
+                'X-Api-Key' => $key,
+                'Accept' => 'image/jpg',
+            ),
+        ));
+
+        if ($response) {
+
+            $body = wp_remote_retrieve_body($response);
+            $base64EncodedBody = base64_encode($body);
+
+            $jsonResponse = array(
+                'status' => 'success',
+                'img' => $base64EncodedBody,
+                'message' => 'Image fetched successfully',
+            );
+            return $jsonResponse;
+
+        } else {
+            $errorResponse = array(
+                'status' => 'error',
+                'message' => is_wp_error($response) ? $response->get_error_message() : 'An unknown error occurred',
+            );
+
+            return $errorResponse; // Send JSON error response
+        }
     }
 
 }
