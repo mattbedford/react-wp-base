@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Api.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/imager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/imager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +45,7 @@
     "PHP Script.Api.php.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "prototype",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "//wsl.localhost/Debian/home/matt-bedford/react-wp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -51,6 +53,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propDebugger",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,7 +75,8 @@
       <updated>1737145013578</updated>
       <workItem from="1737145014584" duration="3951000" />
       <workItem from="1737232580046" duration="1002000" />
-      <workItem from="1737233689060" duration="1613000" />
+      <workItem from="1737233689060" duration="1936000" />
+      <workItem from="1737294146516" duration="5170000" />
     </task>
     <servers />
   </component>

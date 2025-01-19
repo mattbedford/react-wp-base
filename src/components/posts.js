@@ -18,7 +18,13 @@ function Posts(){
             data: { offset: offset}
         })
             .then((data) => {
-                setPosts(data); // Store data in state
+                if(data[0].id) {
+                    setPosts(data); // Store data in state
+                } else {
+                    console.log('Error fetching data:', data);
+                    setApiHits(0);
+                    setPosts([]);
+                }
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);

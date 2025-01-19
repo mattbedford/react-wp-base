@@ -31,7 +31,7 @@ abstract class Api {
         $offset = intval(($data['offset'])) ?? 0;
 
         $p = \get_posts(['post_type' => 'post', 'posts_per_page' => 1, 'offset' => $offset]);
-        if(!$p) return null;
+        if(!$p) return ["Error", "No more posts found!"];
 
 
         $posts = array_map(function ($post) {
@@ -58,7 +58,7 @@ abstract class Api {
         $data = $request->get_params();
         $theme = sanitize_text_field($data['theme']);
 
-        if(in_array($theme, ['nature', 'city', 'technology','food', 'abstract', 'still_life'  ])) {
+        if (in_array($theme, ['nature', 'city', 'technology', 'food', 'abstract', 'still_life'])) {
             $theme = $theme ?? 'nature';
         }
 
@@ -67,16 +67,32 @@ abstract class Api {
         $key = get_option('external_api_key');
 
         $response = wp_remote_get($url, array(
-                'headers' => array(
-                    'X-Api-Key' => $key,
-                    'Accept' => 'image/jpg',
-                ),
-            ));
+            'headers' => array(
+                'X-Api-Key' => $key,
+                'Accept' => 'image/jpg',
+            ),
+        ));
 
-        if($response && !is_wp_error($response)) {
-            return $response;
+        if ($response) {
+
+            $body = wp_remote_retrieve_body($response);
+            $base64EncodedBody = base64_encode($body);
+
+            $jsonResponse = array(
+                'status' => 'success',
+                'img' => $base64EncodedBody,
+                'message' => 'Image fetched successfully',
+            );
+            return $jsonResponse;
+
+        } else {
+            $errorResponse = array(
+                'status' => 'error',
+                'message' => is_wp_error($response) ? $response->get_error_message() : 'An unknown error occurred',
+            );
+
+            return $errorResponse; // Send JSON error response
         }
-        return "Error: something went wrong with this call.";
     }
 
 }
