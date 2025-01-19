@@ -27,11 +27,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
       path: "/account/",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
         children: "Home"
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: "Welcome to my Wordpress React app. Check out the subpages to see what it can do."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: "And please note the URLs! This is custom routing within WP (and without 404 errors!)"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_routing_route__WEBPACK_IMPORTED_MODULE_2__["default"], {
       path: "/account/counter/",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
@@ -112,7 +116,7 @@ const Header = () => {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/",
       className: "item",
-      children: "Root"
+      children: "Home"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/counter/",
       className: "item",
@@ -120,11 +124,11 @@ const Header = () => {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/posts/",
       className: "item",
-      children: "Messages"
+      children: "Posts"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_src_routing_link__WEBPACK_IMPORTED_MODULE_0__["default"], {
       href: "/account/image/",
       className: "item",
-      children: "Image of the count"
+      children: "Image generator"
     })]
   });
 };

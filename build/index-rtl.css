@@ -1,97 +1,104 @@
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles.scss ***!
   \****************************************************************************************************************************************************************************************************************************************/
-body {
-  background: #fff9eb;
-}
-
 html {
-  margin: 0 !important;
-}
-
-button,
-#react-app button {
-  background: #343148;
-  color: white;
+  padding: 40px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 #react-app {
-  width: 100%;
-  height: 100dvh;
+  margin-right: 200px;
 }
 
-#react-base {
+#react-app img {
+  width: 500px;
+  height: auto !important;
+  min-height: unset;
+  max-height: unset;
+}
+
+#react-app form {
   display: flex;
-  flex-direction: row;
-  gap: 5em;
-}
-
-.sidebar {
-  flex: 0 1 25%;
-  background: #fff;
-}
-
-.sidebar-inner {
-  position: fixed;
-  width: 100%;
-  max-width: 25dvw;
-  top: 0;
-  right: 0;
-  height: 100%;
-  background: pink;
-}
-
-.posts-feed {
-  flex: 0 1 75%;
-}
-
-#react-app {
-  position: relative;
-  width: 100%;
-  top: 0;
-  min-height: 100dvh;
-  margin-top: 100px;
-  margin: 0 auto;
-  background-color: #D9AFD9;
-  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 50%, #ffffff 100%);
-  padding: 180px 20%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 20px;
+  gap: 20px;
+  background: #eee;
+  width: 500px;
 }
 
 .ui.menu {
   position: fixed;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  top: 0;
-  right: 0;
-  height: 100px;
-  width: 100%;
-  min-width: 100dvw;
-  background: white;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto 20px auto;
-  font-weight: 800;
-  font-size: 14px;
-  padding: 0 100px;
-  box-shadow: -4px 1px 1px rgba(0, 0, 0, 0.12), -2px 2px 2px rgba(0, 0, 0, 0.12), -1px 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12) !important;
+  flex-direction: column;
+  background: #ecd8ed;
+  right: 20px;
+  top: 60px;
+  padding: 20px;
+  max-width: 130px;
+  height: calc(100dvh - 120px);
+  border-radius: 15px;
 }
 
 .ui.menu .item {
   text-decoration: none;
-  color: #3a3a3a !important;
+  color: #3a3a3a;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+button, input[type=submit] {
+  background: #7c4395;
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .posts-feed {
-  overflow-y: scroll;
-  max-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
 }
 
 .feed-post-single {
-  max-width: 80%;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
   background: white;
-  padding: 40px;
   border-radius: 20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+.feed-post-single img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 350px !important;
+  order: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.feed-post-single > h1 {
+  order: 1;
+  font-size: 16px;
+  padding: 0 20px;
+  margin-bottom: 0;
+}
+
+.feed-post-single .feed-post-texts {
+  order: 2;
+  padding: 0 20px 40px 20px;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+#react-app > p {
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6em;
 }
