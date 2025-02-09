@@ -16,6 +16,9 @@ const Header = () => {
             <Link href="/account/image/" className="item">
                 Image generator
             </Link>
+            <Link href="/account/table/" className="item">
+                Dark bootstrap table
+            </Link>
         </div>
     );
 };

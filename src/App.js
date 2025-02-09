@@ -4,6 +4,7 @@ import Counter from "./components/counter";
 import Route from "./routing/route";
 import Header from "./components/header";
 import Imager from "./components/imager";
+import DarkExample from "./components/table";
 
 const App = () => {
 
@@ -26,6 +27,9 @@ const App = () => {
             </Route>
             <Route path="/account/image/">
                 <Imager></Imager>
+            </Route>
+            <Route path="/account/table/">
+                <DarkExample></DarkExample>
             </Route>
         </>
     );
