@@ -3,7 +3,7 @@
 do_action('wp_head');
 
 
-if(!current_user_can('edit_posts') && !current_user_can('edit_pages')) {
+if(0 === get_current_user_id() || !current_user_can('read')) {
     die("You don't have permission to view this page.");
 }
 

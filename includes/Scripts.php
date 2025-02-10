@@ -12,7 +12,7 @@ abstract class Scripts
         $plugin_url  = plugin_dir_url( __DIR__ );
         wp_enqueue_script('react-wp-app-script',
             $plugin_url . '/build/index.js',
-            array('wp-element', 'wp-api-fetch', 'react-jsx-runtime'),
+            array('wp-element', 'wp-api-fetch', 'react-jsx-runtime', 'wp-i18n'),
             '1.00',
             true);
         wp_enqueue_style('react-wp-app-style',
