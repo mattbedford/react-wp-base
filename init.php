@@ -20,6 +20,6 @@ include_once dirname( __FILE__ ) . '/includes/Html.php';
 include_once dirname( __FILE__ ) . '/includes/Scripts.php';
 include_once dirname( __FILE__ ) . '/includes/Loader.php';
 include_once dirname( __FILE__ ) . '/includes/LoginRedirect.php';
+include_once dirname( __FILE__ ) . '/includes/UserCustomerSync.php';
 
 new \ReactBase\includes\Loader();
-

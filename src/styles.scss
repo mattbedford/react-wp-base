@@ -95,3 +95,28 @@ button, input[type="submit"] {
   margin:0;
   line-height:1.6em;
 }
+
+
+.account-cf7-wrapper {
+  position:fixed;
+  bottom:60px;
+  right:20px;
+  height:380px;
+  background:#d5d5d5;
+  padding:20px;
+  width:calc(100% - 200px);
+  border-radius:12px;
+}
+
+.account-cf7-wrapper form input,
+.account-cf7-wrapper form textarea {
+  padding:5px;
+  max-height:80px;
+  font-size:14px;
+  border-radius:4px;
+}
+
+.account-cf7-wrapper:not(.account-posts .account-cf7-wrapper) {
+  display:none;
+}
+

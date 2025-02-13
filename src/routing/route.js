@@ -6,6 +6,13 @@ const Route = ({ path, children }) => {
 
     // Utility function to ensure trailing slash
     const ensureTrailingSlash = (pathname) => {
+
+        // Sanitize the pathname to ensure a clean className (thanks AI)
+        document.body.className = pathname
+            .replace(/[^a-zA-Z0-9-]/g, '-') // Replace non-alphanumeric characters with a hyphen
+            .replace(/^-|-$/g, '') // Remove leading or trailing hyphens
+            .toLowerCase(); // Make it lowercase for consistency
+
         return pathname.endsWith("/") ? pathname : `${pathname}/`;
     };
 

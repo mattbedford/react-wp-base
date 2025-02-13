@@ -12,6 +12,12 @@ class Loader
     {
 
         add_action( 'init', function() {
+            add_filter('acf/save_post' , [\ReactBase\includes\UserCustomerSync::class, 'AssignCustomerAsPostAuthor'], 100, 1 );
+
+            //   \ReactBase\includes\Admin::create_clienti_cpt();
+         //   \ReactBase\includes\Admin::create_categoria_taxonomy();
+         //   \ReactBase\includes\Admin::Init();
+            // TODO: Check if this is still in use. Think not...
             wp_set_script_translations( 'react-wp-app-script', 'reactbase' );
         } );
         add_action('plugins_loaded', [$this, 'DoRouting']);
@@ -32,9 +38,6 @@ class Loader
 
         add_filter('template_include', [Routing::class, 'MakeRoute']);
         add_filter('status_header', [Routing::class, 'NotFourOhFour'], 999, 4);
-
-        //add_action('plugins_loaded', [\Routing::class, 'Rewrite']);
-        //add_filter('template_include', [\Routing::class, 'Template']);
 
     }
 

@@ -41,26 +41,36 @@ const App = () => {
             <Header></Header>
 
             <Route path="/account/">
-                <h5>Home</h5>
-                <p>{t('welcome-text-1') }</p>
-                <p>And please note the URLs! This is custom routing within WP (and without 404 errors!)</p>
+                <div className="main-app account">
+                    <h5>Home</h5>
+                    <p>{t('welcome-text-1') }</p>
+                    <p>And please note the URLs! This is custom routing within WP (and without 404 errors!)</p>
+                </div>
             </Route>
-            <Route path="/account/counter/" >
-                <h5>Counter</h5>
-                <Counter></Counter>
+            <Route path="/account/counter/">
+                <div className="main-app counter">
+                    <h5>Counter</h5>
+                    <Counter></Counter>
+                </div>
             </Route>
             <Route path="/account/posts/">
-                <h5>Posts</h5>
-                <Posts></Posts>
+                <div className="main-app posts">
+                    <h5>Posts</h5>
+                    <Posts></Posts>
+                </div>
             </Route>
             <Route path="/account/image/">
-                <Imager></Imager>
+                <div className="main-app imager">
+                    <Imager></Imager>
+                </div>
             </Route>
             <Route path="/account/table/">
-                <DarkExample></DarkExample>
+                <div className="main-app table">
+                    <DarkExample></DarkExample>
+                </div>
             </Route>
         </>
-    );
+);
 
 };
 export default App;
